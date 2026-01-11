@@ -1,122 +1,66 @@
-Ensemble Learning – Voting Classifier on LFW People
-📌 Description du projet
+# Ensemble Learning – Voting Classifier on LFW People
 
-Ce projet illustre l’utilisation de l’apprentissage en ensemble (Ensemble Learning) à travers un Voting Classifier appliqué au jeu de données Labeled Faces in the Wild (LFW People).
-L’objectif est de comparer plusieurs modèles de classification, puis de les combiner afin d’améliorer les performances globales.
+Projet d'apprentissage automatique appliquant l'Ensemble Learning sur le dataset Labeled Faces in the Wild (LFW) pour la reconnaissance faciale.
 
-🎯 Objectifs
+## 👥 Auteurs
 
-Charger et explorer le dataset LFW People
+- El Yemni Yasser
+- Ihab Bensselllak
+- Malak Sabir
+- Yassir Arif
 
-Appliquer un prétraitement adapté (normalisation, PCA)
+## 📌 Description
 
-Implémenter plusieurs classifieurs de base
+Ce projet utilise un **Voting Classifier** combinant trois modèles (Logistic Regression, SVM, Random Forest) pour classifier des visages de personnalités publiques. Le dataset LFW contient 1288 images de 7 personnes différentes.
 
-Construire un Voting Classifier
+## 🎯 Objectifs
 
-Comparer les performances avec une baseline
+1. Charger et explorer le dataset LFW
+2. Prétraiter les données (normalisation, PCA)
+3. Implémenter un Voting Classifier
+4. Optimiser les hyperparamètres avec GridSearchCV
+5. Évaluer et comparer les performances
 
-Évaluer les modèles via validation croisée
+## ⚙️ Méthodologie
 
-Discuter des limites de l’approche
+- **Prétraitement** : StandardScaler + PCA (150 composantes)
+- **Modèles** : Logistic Regression, SVM (RBF), Random Forest
+- **Ensemble** : Voting Classifier (Soft Voting)
+- **Optimisation** : GridSearchCV avec validation croisée (k=5)
+- **Split** : 70% train / 15% validation / 15% test
 
-🗂️ Jeu de données
+## 📊 Résultats
 
-Nom : Labeled Faces in the Wild (LFW People)
-Source : Scikit-learn
-Chargement :
+Le projet génère 9 visualisations :
+- Échantillons du dataset
+- Distribution des classes
+- Analyse PCA et Eigenfaces
+- Comparaison des modèles
+- Matrice de confusion
+- Analyse des erreurs
 
-from sklearn.datasets import fetch_lfw_people
+## 🛠️ Technologies
 
+- Python 3.8+
+- scikit-learn
+- NumPy, Pandas
+- Matplotlib, Seaborn
 
-Images de visages de personnalités publiques
+## 🚀 Installation
 
-Données réelles, bruitées et déséquilibrées
+```bash
+pip install numpy pandas scikit-learn matplotlib seaborn jupyter
+jupyter notebook ML.ipynb
+```
 
-Utilisation d’un sous-ensemble pour réduire le coût de calcul
+## ⚠️ Limites
 
-📚 Référence officielle :
-https://scikit-learn.org/stable/datasets/real_world.html#lfw-people-dataset
+- Dataset déséquilibré
+- Perte d'information due au PCA
+- Temps de calcul élevé (GridSearchCV)
+- Sensibilité aux hyperparamètres
 
-⚙️ Méthodologie
-1. Exploration des données
+## 📚 Références
 
-Dimensions du dataset
-
-Nombre de classes
-
-Distribution des labels
-
-2. Prétraitement
-
-Mise à l’échelle avec StandardScaler
-
-Réduction de dimension via PCA
-
-Justification : données haute dimension + bruit
-
-3. Modèles utilisés
-
-Logistic Regression
-
-Support Vector Machine (SVM)
-
-Random Forest
-
-4. Ensemble Learning
-
-VotingClassifier (Soft Voting)
-
-Pondération égale des modèles
-
-5. Optimisation
-
-GridSearchCV
-
-Validation croisée (k = 5)
-
-📊 Métriques d’évaluation
-
-Accuracy
-
-F1-score (macro)
-
-Matrice de confusion
-
-▶️ Instructions d’exécution
-Exécution locale
-pip install numpy pandas scikit-learn matplotlib seaborn
-jupyter notebook
-
-
-Puis ouvrir :
-
-Untitled-1.ipynb
-
-Exécution sur Google Colab
-
-Importer le notebook
-
-Exécuter toutes les cellules (Runtime > Run all)
-
-Aucun fichier externe requis
-
-⚠️ Limites du projet
-
-Dataset déséquilibré
-
-Perte d’information due au PCA
-
-Temps de calcul élevé sans sous-échantillonnage
-
-Sensibilité aux hyperparamètres
-
-📚 Références
-
-Pedregosa et al., Scikit-learn: Machine Learning in Python, JMLR, 2011
-
-Scikit-learn documentation
-https://scikit-learn.org
-
-LFW Dataset
-http://vis-www.cs.umass.edu/lfw/
+- [LFW Dataset](http://vis-www.cs.umass.edu/lfw/)
+- [Scikit-learn Documentation](https://scikit-learn.org)
